@@ -37,6 +37,11 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('/active-plan', 'TradingPlan::getActivePlan');
+$routes->get('/running-transaction', 'TradingPlan::getRunningTransaction');
+$routes->get('/finish-plan', 'TradingPlan::getFinishPlan');
+$routes->get('/cancel-plan', 'TradingPlan::getCancelPlan');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -22,7 +22,141 @@
 
 <body>
 
+
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="#">Parveen Traders</a>
+        <div id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="sidebar-header">
+        <div class="user-info">
+          <span class="user-name">Reza
+            <strong>Pahlevi</strong>
+          </span>
+          <span class="user-role">Member</span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+      <!-- sidebar-header  -->
+      
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>Menu</span>
+          </li>
+          <li>
+            <a href="/">
+              <i class="fa fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-chart-line"></i>
+              <span>Trading Plan</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="/active-plan">Active Plan</a>
+                </li>
+                <li>
+                  <a href="/running-transaction">Running Transaction</a>
+                </li>
+                <li>
+                  <a href="/finish-plan">Finish Plan</a>
+                </li>
+                <li>
+                  <a href="/cancel-plan">Cancel Plan</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-play-circle"></i>
+              <span>Education</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="/review-trading-plan">Review Trading Plan</a>
+                </li>
+                <li>
+                  <a href="/webinar-record">Webinar Record</a>
+                </li>
+                <li>
+                  <a href="vip-course">VIP Course</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-rocket"></i>
+              <span>Tools</span>
+              <span class="badge badge-pill badge-danger">Cooming Soon</span>
+            </a>
+          </li>
+
+          <li class="header-menu">
+            <span>Recommended</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-calendar"></i>
+              <span>Traders Family</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-book"></i>
+              <span>Broker Terbaik</span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="#">
+              <i class="fa fa-folder"></i>
+              <span>Tiktok</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    
+  </nav>
+
 <?= $this->renderSection('content'); ?>
+
+<footer class="text-center">
+        <div class="mb-2">
+          <small>
+            © 2022 Parveen Traders <i class="fa fa-chart-line" style="color:black"></i>
+          </small>
+        </div>
+      </footer>
+    </div>
+  </main>
+  <!-- page-content" -->
+</div>
+<!-- page-wrapper -->
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
