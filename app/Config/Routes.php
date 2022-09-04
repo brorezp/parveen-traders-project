@@ -42,6 +42,9 @@ $routes->get('/running-transaction', 'TradingPlan::getRunningTransaction');
 $routes->get('/finish-plan', 'TradingPlan::getFinishPlan');
 $routes->get('/cancel-plan', 'TradingPlan::getCancelPlan');
 
+$routes->get('/review-trading-plan', 'Education::reviewTradingPlan');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
