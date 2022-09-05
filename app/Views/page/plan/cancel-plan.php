@@ -9,15 +9,29 @@
       <hr>
       
       <div class="row">
-        
+        <div class="col-md-5 mb-3">
+          <div class="card border-success">
+            <div class="card-body text-success">
+                Tutup Sidebar untuk mendapatkan hasil maksimals
+            </div>
+          </div>
+        </div>
 
-        <div class="col-md-6">
+        <div class="col-md-7">
+
+        </div>
+
+        <div class="col-md-8">
           <div class="card border-danger">
             <div class="card-body text-danger">
                 Informasi di halaman ini hanya bertujuan untuk demonstrasi dan edukasi saja. <br>
                 Parveen Traders tidak bertanggungjawab terhadap hasil apapun karena halaman ini.
             </div>
           </div>
+        </div>
+
+        <div class="col-md-4">
+          &nbsp
         </div>
 
       </div>
