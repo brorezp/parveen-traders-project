@@ -45,7 +45,7 @@ $routes->get('/cancel-plan', 'TradingPlan::getCancelPlan');
 $routes->get('/review-trading-plan', 'Education::reviewTradingPlan');
 
 $routes->get('/sl-tp-calculator', 'SltpCalculator::index');
-$routes->post('/sl-tp-calculator-post', 'SltpCalculator::sltpCount');
+$routes->post('/sl-tp-calculator/save', 'SltpCalculator::save');
 
 
 
