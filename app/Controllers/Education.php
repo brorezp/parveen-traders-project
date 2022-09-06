@@ -8,6 +8,9 @@ class Education extends BaseController
 {
     public function reviewTradingPlan()
     {
-        return view('page/education/review-trading-plan');
+        $data = [
+            "title" => "Review Trading Plan"
+        ];
+        return view('page/education/review-trading-plan', $data);
     }
 }

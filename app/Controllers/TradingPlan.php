@@ -8,21 +8,33 @@ class TradingPlan extends BaseController
 {
     public function getActivePlan()
     {
-        return view('page/plan/active-plan');
+        $data = [
+            "title" => "Active Plan"
+        ];
+        return view('page/plan/active-plan', $data);
     }
 
     public function getRunningTransaction()
     {
-        return view('page/plan/running-transaction');
+        $data = [
+            "title" => "Running Transaction"
+        ];
+        return view('page/plan/running-transaction', $data);
     }
 
     public function getFinishPlan()
     {
-        return view('page/plan/finish-plan');
+        $data = [
+            "title" => "Finish Plan"
+        ];
+        return view('page/plan/finish-plan', $data);
     }
 
     public function getCancelPlan()
     {
-        return view('page/plan/cancel-plan');
+        $data = [
+            "title" => "Cancel Plan"
+        ];
+        return view('page/plan/cancel-plan', $data);
     }
 }

@@ -31,7 +31,7 @@
 
         <div class="col-md-3">
           <div class="card">
-          <a href="/lot-calculator" class="btn btn-warning">
+          <a href="/#" class="btn btn-warning">
             <div class="card-body">
               Lot Calculator
             </div>
