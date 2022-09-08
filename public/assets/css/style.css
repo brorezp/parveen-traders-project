@@ -490,3 +490,7 @@ body {
 .modal-75 {
   width: 100%;
 }
+
+input[type=radio] {
+  transform: scale(1.5);
+}

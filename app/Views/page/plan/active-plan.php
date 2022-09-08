@@ -38,6 +38,11 @@
 
       <hr>
 
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-active-plan">
+        Add Data
+      </button>
+
+      <hr>
 
       <div class="row">
         <div class="col-md-12">
@@ -59,6 +64,7 @@
                   <th scope="col">TP-2</th>
                   <th scope="col">TP-3</th>
                   <th scope="col">Chart</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -76,12 +82,20 @@
               <td><?= $row['tp-1']; ?></td>
               <td><?= $row['tp-2']; ?></td>
               <td><?= $row['tp-3']; ?></td>
-                  <td>
+              <td>
                   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal<?=$row['id'];?>">
                       Chart
                   </button>
-                  </td>
+              </td>
+              <td>
+                <a href="active-plan/addrunning/<?= $row['id']; ?>" class="btn btn-primary">Add Running</a>
+                <a href="active-plan/edit/<?= $row['id']; ?>" class="btn btn-warning">Edit</a>
+                <a href="active-plan/delete/<?= $row['id']; ?>" class="btn btn-danger">Delete</a>
+              </td>
+              
                 </tr>
+
+
                 <!-- Modal -->
             <div class="modal fade modal-xl" id="exampleModal<?=$row['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-lg modal-dialog">
@@ -94,6 +108,8 @@
                   </div>
                   <div class="modal-body" style="text-align: center;">
                     <img src="<?= $row['chart']; ?>" width="700px">
+                    <br>
+                    <a href="<?= $row['chart']; ?>" target="_blank"><?= $row['chart']; ?></a>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -114,6 +130,7 @@
       
       <hr>
 
+<?php include('add-active-plan.php'); ?>
        
        
 <?= $this->endSection(); ?>

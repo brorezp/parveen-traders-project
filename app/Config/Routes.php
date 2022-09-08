@@ -38,6 +38,10 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 $routes->get('/active-plan', 'TradingPlan::getActivePlan');
+$routes->get('/active-plan/delete/{:any}', 'TradingPlan::activePlanDelete');
+
+$routes->post('/active-plan/save', 'TradingPlan::activePlanSave');
+
 $routes->get('/running-transaction', 'TradingPlan::getRunningTransaction');
 $routes->get('/finish-plan', 'TradingPlan::getFinishPlan');
 $routes->get('/cancel-plan', 'TradingPlan::getCancelPlan');
