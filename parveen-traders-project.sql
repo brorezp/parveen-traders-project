@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Sep 2022 pada 00.54
--- Versi server: 10.4.20-MariaDB
--- Versi PHP: 8.0.9
+-- Waktu pembuatan: 08 Sep 2022 pada 12.43
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,9 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `active-plan` (
   `id` int(5) NOT NULL,
+  `date` date DEFAULT NULL,
   `pair` varchar(20) NOT NULL,
   `timeframe` varchar(20) NOT NULL,
-  `action` varchar(20) NOT NULL,
+  `position` varchar(20) NOT NULL,
   `price` float NOT NULL,
   `stoploss` float NOT NULL,
   `point` float NOT NULL,
@@ -47,9 +48,9 @@ CREATE TABLE `active-plan` (
 -- Dumping data untuk tabel `active-plan`
 --
 
-INSERT INTO `active-plan` (`id`, `pair`, `timeframe`, `action`, `price`, `stoploss`, `point`, `tp-1`, `tp-2`, `tp-3`, `chart`, `created_at`, `updated_at`) VALUES
-(1, 'EURAUD', '1H', 'BUY', 1.4607, 1.4552, 0.0055, 1.4662, 1.4717, 1.4772, 'https://www.tradingview.com/x/cXgehtD4/', '2022-09-08 00:46:50', '2022-09-08 00:46:50'),
-(2, 'EURCHF', '1H', 'BUY', 0.9784, 0.9743, 0.0041, 0.9825, 0.9866, 0.9907, 'https://www.tradingview.com/x/wBbumnMJ/', '2022-09-08 00:52:38', '2022-09-08 00:52:38');
+INSERT INTO `active-plan` (`id`, `date`, `pair`, `timeframe`, `position`, `price`, `stoploss`, `point`, `tp-1`, `tp-2`, `tp-3`, `chart`, `created_at`, `updated_at`) VALUES
+(1, '2022-09-08', 'EURAUD', '1H', 'BUY', 1.4607, 1.4552, 0.0055, 1.4662, 1.4717, 1.4772, 'https://www.tradingview.com/x/cXgehtD4/', '2022-09-08 00:46:50', '2022-09-08 00:46:50'),
+(2, '2022-09-07', 'EURCHF', '1H', 'BUY', 0.9784, 0.9743, 0.0041, 0.9825, 0.9866, 0.9907, 'https://www.tradingview.com/x/wBbumnMJ/', '2022-09-08 00:52:38', '2022-09-08 00:52:38');
 
 -- --------------------------------------------------------
 

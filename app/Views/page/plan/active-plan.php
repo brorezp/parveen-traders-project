@@ -54,7 +54,7 @@
                   <th scope="col">Action</th>
                   <th scope="col">Price</th>
                   <th scope="col">StopLoss</th>
-                  <th scope="col">Margin Point</th>
+                  <th scope="col">Point</th>
                   <th scope="col">TP-1</th>
                   <th scope="col">TP-2</th>
                   <th scope="col">TP-3</th>
@@ -62,119 +62,46 @@
                 </tr>
               </thead>
               <tbody>
+            <?php $no = 1; ?>
+            <?php foreach ($sltp as $row) : ?>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>04-09-2022</td>
-                  <td>EURCAD</td>
-                  <td>1H</td>
-                  <td class="bg-buy">Buy</td>
-                  <td>1.9846</td>
-                  <td>1.9546</td>
-                  <td>300</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
+                <td><?= $no++ ?></td>
+              <td><?= date("d-m-Y", strtotime($row['date']));?></td>
+              <td><?= $row['pair']; ?></td>
+              <td><?= $row['timeframe']; ?></td>
+              <td class="bg-<?= $row['position']; ?>"><?= $row['position']; ?></td>
+              <td><?= $row['price']; ?></td>
+              <td><?= $row['stoploss']; ?></td>
+              <td><?= $row['point']; ?></td>
+              <td><?= $row['tp-1']; ?></td>
+              <td><?= $row['tp-2']; ?></td>
+              <td><?= $row['tp-3']; ?></td>
                   <td>
-                    <button class="btn btn-success">
-                      View Chart
-                    </button>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal<?=$row['id'];?>">
+                      Chart
+                  </button>
                   </td>
                 </tr>
-
-                <tr>
-                  <th scope="row">1</th>
-                  <td>04-09-2022</td>
-                  <td>EURCAD</td>
-                  <td>1H</td>
-                  <td class="bg-sell">Sell</td>
-                  <td>1.9846</td>
-                  <td>1.9546</td>
-                  <td>300</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>
-                    <button class="btn btn-success">
-                      View Chart
+                <!-- Modal -->
+            <div class="modal fade modal-xl" id="exampleModal<?=$row['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-lg modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Chart <?= $row['pair']; ?> Timeframe <?= $row['timeframe']; ?></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
                     </button>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">1</th>
-                  <td>04-09-2022</td>
-                  <td>EURCAD</td>
-                  <td>1H</td>
-                  <td class="bg-buy">Buy</td>
-                  <td>1.9846</td>
-                  <td>1.9546</td>
-                  <td>300</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>
-                    <button class="btn btn-success">
-                      View Chart
-                    </button>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">1</th>
-                  <td>04-09-2022</td>
-                  <td>EURCAD</td>
-                  <td>1H</td>
-                  <td class="bg-sell">Sell</td>
-                  <td>1.9846</td>
-                  <td>1.9546</td>
-                  <td>300</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>
-                    <button class="btn btn-success">
-                      View Chart
-                    </button>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">1</th>
-                  <td>04-09-2022</td>
-                  <td>EURCAD</td>
-                  <td>1H</td>
-                  <td class="bg-buy">Buy</td>
-                  <td>1.9846</td>
-                  <td>1.9546</td>
-                  <td>300</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>
-                    <button class="btn btn-success">
-                      View Chart
-                    </button>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">1</th>
-                  <td>04-09-2022</td>
-                  <td>EURCAD</td>
-                  <td>1H</td>
-                  <td class="bg-buy">Buy</td>
-                  <td>1.9846</td>
-                  <td>1.9546</td>
-                  <td>300</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>2.3000</td>
-                  <td>
-                    <button class="btn btn-success">
-                      View Chart
-                    </button>
-                  </td>
-                </tr>
+                  </div>
+                  <div class="modal-body" style="text-align: center;">
+                    <img src="<?= $row['chart']; ?>" width="700px">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <?php endforeach ?>
               </tbody>
             </table>
               
@@ -184,6 +111,9 @@
         </div>
       </div>
 
+      
       <hr>
+
+       
        
 <?= $this->endSection(); ?>
