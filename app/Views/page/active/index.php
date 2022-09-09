@@ -39,7 +39,7 @@
       <hr>
 
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-active-plan">
-        Add Data
+        Add Plan
       </button>
 
       <hr>
@@ -88,9 +88,9 @@
                   </button>
               </td>
               <td>
-                <a href="active-plan/addrunning/<?= $row['id']; ?>" class="btn btn-primary">Running</a>
+                <a href="active-plan/addrunning/<?= $row['id']; ?>" class="btn btn-primary" onclick="return confirm('ingin Running Plan ini ?')">Running</a>
                 <a href="active-plan/edit/<?= $row['id']; ?>" class="btn btn-warning">Edit</a>
-                <a href="active-plan/cancel/<?= $row['id']; ?>" class="btn btn-danger">Cancel</a>
+                <a href="active-plan/cancel/<?= $row['id']; ?>" class="btn btn-danger" onclick="return confirm('ingin Cancel Plan ini ?')">Cancel</a>
               </td>
               
                 </tr>

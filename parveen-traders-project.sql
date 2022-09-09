@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Sep 2022 pada 15.07
+-- Waktu pembuatan: 10 Sep 2022 pada 01.06
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 8.0.9
 
@@ -50,7 +50,8 @@ CREATE TABLE `active-plan` (
 --
 
 INSERT INTO `active-plan` (`id`, `date`, `pair`, `timeframe`, `position`, `price`, `stoploss`, `point`, `tp-1`, `tp-2`, `tp-3`, `chart`, `cancel`, `created_at`, `updated_at`) VALUES
-(9, '09-09-2022', 'EURUSD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 1.7085, 1.7138, 1.7191, 'https://www.tradingview.com/x/NG2gAsfP/', 'FALSE', '2022-09-09 07:54:54', '2022-09-09 07:54:54');
+(10, '09-09-2022', 'GBPUSD', '1 HOUR', 'BUY', 1.7035, 1.6975, 0.006, 1.7095, 1.7155, 1.7215, 'https://www.tradingview.com/x/NG2gAsfP/', 'FALSE', '2022-09-09 17:46:49', '2022-09-09 18:05:25'),
+(11, '09-09-2022', 'GBPUSD', '1 HOUR', 'BUY', 1.7035, 1.6975, 0.006, 1.7095, 1.7155, 1.7215, 'https://www.tradingview.com/x/NG2gAsfP/', 'TRUE', '2022-09-09 18:00:17', '2022-09-09 18:00:27');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,8 @@ CREATE TABLE `running-transaction` (
 
 INSERT INTO `running-transaction` (`id`, `date`, `pair`, `timeframe`, `position`, `price`, `stoploss`, `point`, `chart`, `tp-1`, `tp-2`, `tp-3`, `finish`, `created_at`, `updated_at`) VALUES
 (4, '09-09-2022', 'GBPAUD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, NULL, '', '', '', 'FALSE', '2022-09-09 07:29:07', '2022-09-09 07:29:07'),
-(5, '09-09-2022', 'EURUSD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 'https://www.tradingview.com/x/NG2gAsfP/', '', '', '', 'FALSE', '2022-09-09 07:36:01', '2022-09-09 07:36:01');
+(5, '09-09-2022', 'EURUSD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 'https://www.tradingview.com/x/NG2gAsfP/', '', '', '', 'FALSE', '2022-09-09 07:36:01', '2022-09-09 07:36:01'),
+(6, '09-09-2022', 'GBPUSD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 'https://www.tradingview.com/x/NG2gAsfP/', '', '', '', 'FALSE', '2022-09-09 17:42:51', '2022-09-09 17:42:51');
 
 -- --------------------------------------------------------
 
@@ -142,13 +144,13 @@ ALTER TABLE `sltp`
 -- AUTO_INCREMENT untuk tabel `active-plan`
 --
 ALTER TABLE `active-plan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `running-transaction`
 --
 ALTER TABLE `running-transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `sltp`
