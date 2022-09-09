@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\ActivePlanModel;
 
 
-class TradingPlan extends BaseController
+class ActivePlan extends BaseController
 {
     protected $activePlan;
 
@@ -15,9 +15,9 @@ class TradingPlan extends BaseController
         $this->activePlan = new ActivePlanModel();
     }
 
-    public function getActivePlan()
+    public function index()
     {
-        $active = $this->activePlan->findAll();
+        $active = $this->activePlan->where('cancel', 'FALSE')->findAll();
 
         $data = [
             "title" => "SActive Plan",
@@ -27,7 +27,7 @@ class TradingPlan extends BaseController
         return view('page/plan/active-plan', $data);
     }
 
-    public function activePlanSave()
+    public function save()
     {
         $date = date("d-m-Y");
         $pair = $this->request->getVar('pair');
@@ -36,6 +36,7 @@ class TradingPlan extends BaseController
         $price = $this->request->getVar('price');
         $stoploss = $this->request->getVar('stoploss');
         $chart = $this->request->getVar('chart');
+        $cancel = 'FALSE';
         
         // var_dump($date);
         
@@ -70,41 +71,16 @@ class TradingPlan extends BaseController
         ]);
 
         return redirect()->to('/active-plan');
-
     }
 
-
-
-    public function activePlanDelete($id)
+    public function cancel($id)
     {
+        $data = $this->activePlan->find($id);
 
-        $this->activePlan->delete($id);
-        var_dump('berhasil');
+         
+        
+        // $this->activePlan->delete($id);
+        // var_dump($data['timeframe']);
         // return redirect()->to('/active-plan');
-
-    }
-
-    public function getRunningTransaction()
-    {
-        $data = [
-            "title" => "Running Transaction"
-        ];
-        return view('page/plan/running-transaction', $data);
-    }
-
-    public function getFinishPlan()
-    {
-        $data = [
-            "title" => "Finish Plan"
-        ];
-        return view('page/plan/finish-plan', $data);
-    }
-
-    public function getCancelPlan()
-    {
-        $data = [
-            "title" => "Cancel Plan"
-        ];
-        return view('page/plan/cancel-plan', $data);
     }
 }

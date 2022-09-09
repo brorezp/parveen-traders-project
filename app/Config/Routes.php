@@ -37,14 +37,13 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->get('/active-plan', 'TradingPlan::getActivePlan');
-$routes->get('/active-plan/delete/{:any}', 'TradingPlan::activePlanDelete');
+$routes->get('/active-plan', 'ActivePlan::index');
+$routes->get('/active-plan/cancel/(:any)', 'ActivePlan::cancel/$1');
+$routes->post('/active-plan/save', 'ActivePlan::save');
 
-$routes->post('/active-plan/save', 'TradingPlan::activePlanSave');
-
-$routes->get('/running-transaction', 'TradingPlan::getRunningTransaction');
-$routes->get('/finish-plan', 'TradingPlan::getFinishPlan');
-$routes->get('/cancel-plan', 'TradingPlan::getCancelPlan');
+$routes->get('/running-transaction', 'RunningTransaction::index');
+$routes->get('/finish-plan', 'FinishPlan::index');
+$routes->get('/cancel-plan', 'CancelPlan::index');
 
 $routes->get('/review-trading-plan', 'Education::reviewTradingPlan');
 

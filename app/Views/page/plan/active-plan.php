@@ -90,7 +90,7 @@
               <td>
                 <a href="active-plan/addrunning/<?= $row['id']; ?>" class="btn btn-primary">Add Running</a>
                 <a href="active-plan/edit/<?= $row['id']; ?>" class="btn btn-warning">Edit</a>
-                <a href="active-plan/delete/<?= $row['id']; ?>" class="btn btn-danger">Delete</a>
+                <a href="active-plan/cancel/<?= $row['id']; ?>" class="btn btn-danger">Cancel</a>
               </td>
               
                 </tr>
