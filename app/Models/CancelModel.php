@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ActivePlanModel extends Model
+class CancelModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'active-plan';
+    protected $table            = 'cancel-model';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
@@ -17,7 +17,7 @@ class ActivePlanModel extends Model
     protected $allowedFields    = ['date', 'pair', 'timeframe', 'position', 'price', 'stoploss', 'point', 'tp-1', 'tp-2', 'tp-3', 'chart', 'cancel'];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

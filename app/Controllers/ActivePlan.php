@@ -66,7 +66,8 @@ class ActivePlan extends BaseController
             'tp-1' => $tp_1,
             'tp-2' => $tp_2,
             'tp-3' => $tp_3,
-            'chart' => $chart
+            'chart' => $chart,
+            'cancel' => $cancel
 
         ]);
 
