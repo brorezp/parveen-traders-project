@@ -69,7 +69,7 @@
               </thead>
               <tbody>
             <?php $no = 1; ?>
-            <?php foreach ($sltp as $row) : ?>
+            <?php foreach ($rows as $row) : ?>
                 <tr>
                 <td><?= $no++ ?></td>
               <td><?= date("d-m-Y", strtotime($row['date']));?></td>
@@ -88,7 +88,7 @@
                   </button>
               </td>
               <td>
-                <a href="active-plan/addrunning/<?= $row['id']; ?>" class="btn btn-primary">Add Running</a>
+                <a href="active-plan/addrunning/<?= $row['id']; ?>" class="btn btn-primary">Running</a>
                 <a href="active-plan/edit/<?= $row['id']; ?>" class="btn btn-warning">Edit</a>
                 <a href="active-plan/cancel/<?= $row['id']; ?>" class="btn btn-danger">Cancel</a>
               </td>
@@ -130,7 +130,7 @@
       
       <hr>
 
-<?php include('add-active-plan.php'); ?>
+<?php include('add.php'); ?>
        
        
 <?= $this->endSection(); ?>

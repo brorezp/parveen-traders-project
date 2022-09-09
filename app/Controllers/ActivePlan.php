@@ -4,15 +4,18 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ActivePlanModel;
+use App\Models\RunningTransactionModel;
 
 
 class ActivePlan extends BaseController
 {
     protected $activePlan;
+    protected $runningTransaction;
 
     public function __construct()
     {
         $this->activePlan = new ActivePlanModel();
+        $this->runningTransaction = new RunningTransactionModel();
     }
 
     public function index()
@@ -21,10 +24,10 @@ class ActivePlan extends BaseController
 
         $data = [
             "title" => "SActive Plan",
-            "sltp" => $active
+            "rows" => $active
         ];
 
-        return view('page/plan/active-plan', $data);
+        return view('page/active/index', $data);
     }
 
     public function save()
@@ -78,10 +81,48 @@ class ActivePlan extends BaseController
     {
         $data = $this->activePlan->find($id);
 
-         
-        
-        // $this->activePlan->delete($id);
-        // var_dump($data['timeframe']);
-        // return redirect()->to('/active-plan');
+        $this->activePlan->save([
+            'id' => $id,
+            'cancel' => 'TRUE'
+        ]);
+
+        return redirect()->to('/active-plan');
     }
+
+    public function addRunning($id)
+    {
+        $data = $this->activePlan->find($id);
+
+        $this->runningTransaction->save([
+            'date' => $data['date'],
+            'pair' => $data['pair'],
+            'timeframe' => $data['timeframe'],
+            'position' => $data['position'],
+            'price' => $data['price'],
+            'stoploss' => $data['stoploss'],
+            'point' => $data['point'],
+            'chart' => $data['chart'],
+            'tp-1' => '',
+            'tp-2' => '',
+            'tp-3' => '',
+            'finish' => 'FALSE',
+        ]);
+
+        $this->activePlan->delete($id);
+
+        return redirect()->to('/active-plan');
+    }
+
+    public function edit($id)
+    {
+        $active = $this->activePlan->find($id);
+
+        $data = [
+            "title" => "Edit Plan",
+            "rows" => $active
+        ];
+
+        return view('page/active/edit', $data);
+    }
+
 }

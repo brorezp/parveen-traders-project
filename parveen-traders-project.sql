@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Sep 2022 pada 09.05
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 8.1.6
+-- Waktu pembuatan: 09 Sep 2022 pada 15.07
+-- Versi server: 10.4.20-MariaDB
+-- Versi PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `active-plan` (
   `id` int(5) NOT NULL,
-  `date` date DEFAULT NULL,
+  `date` varchar(200) DEFAULT NULL,
   `pair` varchar(20) NOT NULL,
   `timeframe` varchar(20) NOT NULL,
   `position` varchar(20) NOT NULL,
@@ -50,8 +50,39 @@ CREATE TABLE `active-plan` (
 --
 
 INSERT INTO `active-plan` (`id`, `date`, `pair`, `timeframe`, `position`, `price`, `stoploss`, `point`, `tp-1`, `tp-2`, `tp-3`, `chart`, `cancel`, `created_at`, `updated_at`) VALUES
-(2, '2022-09-07', 'EURCHF', '1H', 'BUY', 0.9784, 0.9743, 0.0041, 0.9825, 0.9866, 0.9907, 'https://www.tradingview.com/x/wBbumnMJ/', 'FALSE', '2022-09-08 00:52:38', '2022-09-08 00:52:38'),
-(6, '0000-00-00', 'EURUSD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 1.7085, 1.7138, 1.7191, 'https://www.tradingview.com/x/NG2gAsfP/', 'FALSE', '2022-09-09 01:51:13', '2022-09-09 01:51:13');
+(9, '09-09-2022', 'EURUSD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 1.7085, 1.7138, 1.7191, 'https://www.tradingview.com/x/NG2gAsfP/', 'FALSE', '2022-09-09 07:54:54', '2022-09-09 07:54:54');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `running-transaction`
+--
+
+CREATE TABLE `running-transaction` (
+  `id` int(11) NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `pair` varchar(20) NOT NULL,
+  `timeframe` varchar(20) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `price` float NOT NULL,
+  `stoploss` float NOT NULL,
+  `point` float NOT NULL,
+  `chart` varchar(200) DEFAULT NULL,
+  `tp-1` varchar(200) DEFAULT NULL,
+  `tp-2` varchar(200) DEFAULT NULL,
+  `tp-3` varchar(200) DEFAULT NULL,
+  `finish` varchar(20) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `running-transaction`
+--
+
+INSERT INTO `running-transaction` (`id`, `date`, `pair`, `timeframe`, `position`, `price`, `stoploss`, `point`, `chart`, `tp-1`, `tp-2`, `tp-3`, `finish`, `created_at`, `updated_at`) VALUES
+(4, '09-09-2022', 'GBPAUD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, NULL, '', '', '', 'FALSE', '2022-09-09 07:29:07', '2022-09-09 07:29:07'),
+(5, '09-09-2022', 'EURUSD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 'https://www.tradingview.com/x/NG2gAsfP/', '', '', '', 'FALSE', '2022-09-09 07:36:01', '2022-09-09 07:36:01');
 
 -- --------------------------------------------------------
 
@@ -92,6 +123,12 @@ ALTER TABLE `active-plan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `running-transaction`
+--
+ALTER TABLE `running-transaction`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `sltp`
 --
 ALTER TABLE `sltp`
@@ -105,7 +142,13 @@ ALTER TABLE `sltp`
 -- AUTO_INCREMENT untuk tabel `active-plan`
 --
 ALTER TABLE `active-plan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `running-transaction`
+--
+ALTER TABLE `running-transaction`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `sltp`
