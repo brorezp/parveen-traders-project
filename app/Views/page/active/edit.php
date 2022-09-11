@@ -62,25 +62,17 @@
                   </select>
                 </div>
 
-                <?php 
-                
-                function activeRadio($value, $input)
-                {
-                    $result = $value==$input?'checked':'';
-                    return $result;
-                }
-
-                ?>
-
                 <div class="form-group col-md-6">
                   <label for="timeframe">TimeFrame</label>
                   <br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="timeframe" id="timeframe" value="1 HOUR" <?= activeRadio('1 HOUR', $row['timeframe']) ?>>
+                    <input class="form-check-input" type="radio" name="timeframe" id="timeframe" value="1 HOUR" <?= $row['timeframe'] == '1 HOUR' ? 'checked' : '' ?>>
+
                     <label class="form-check-label" for="timeframe">1 Hour</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="timeframe" id="timeframe" value="4 HOUR" <?= activeRadio('4 HOUR', $row['timeframe']) ?>>
+                    <input class="form-check-input" type="radio" name="timeframe" id="timeframe" value="4 HOUR" <?= $row['timeframe'] == '4 HOUR' ? 'checked' : '' ?>>
+
                     <label class="form-check-label" for="timeframe">4 Hour</label>
                   </div>
                 </div>
@@ -89,11 +81,11 @@
                   <label for="Position">Posisi</label>
                   <br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="position" id="position" value="BUY" <?= activeRadio('BUY', $row['position']) ?>>
+                    <input class="form-check-input" type="radio" name="position" id="position" value="BUY" <?= $row['position'] == 'BUY' ? 'checked' : '' ?>>
                     <label class="form-check-label" for="buy">Buy</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="position" id="position" value="SELL" <?= activeRadio('SELL', $row['position']) ?>>
+                    <input class="form-check-input" type="radio" name="position" id="position" value="SELL" <?= $row['position'] == 'SELL' ? 'checked' : '' ?>>
                     <label class="form-check-label" for="sell">Sell</label>
                   </div>
                 </div>

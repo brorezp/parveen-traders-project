@@ -14,7 +14,7 @@ class RunningTransactionModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['date', 'pair', 'timeframe', 'position', 'price', 'stoploss', 'point', 'tp-1', 'tp-2', 'tp-3', 'chart', 'finish'];
+    protected $allowedFields    = ['date', 'pair', 'timeframe', 'position', 'price', 'stoploss', 'point', 'chart', 'tp-1', 'tp-2', 'tp-3', 'hit-1', 'hit-2', 'hit-3', 'finish'];
 
     // Dates
     protected $useTimestamps = true;

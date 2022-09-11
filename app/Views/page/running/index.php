@@ -65,50 +65,54 @@
             <?php $no = 1; ?>
             <?php foreach ($rows as $row) : ?>
                 <tr>
-                <td><?= $no++ ?></td>
-              <td><?= date("d-m-Y", strtotime($row['date']));?></td>
-              <td><?= $row['pair']; ?></td>
-              <td><?= $row['timeframe']; ?></td>
-              <td class="bg-<?= $row['position']; ?>"><?= $row['position']; ?></td>
-              <td><?= $row['price']; ?></td>
-              <td><?= $row['stoploss']; ?></td>
-              <td><?= $row['point']; ?></td>
-              <td>
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal<?=$row['id'];?>">
-                      Chart
-                  </button>
-              </td>
-              <td><?= $row['tp-1']; ?></td>
-              <td><?= $row['tp-2']; ?></td>
-              <td><?= $row['tp-3']; ?></td>
-              <td>
-                <a href="active-plan/finish/<?= $row['id']; ?>" class="btn btn-warning">Finish</a>
-              </td>
-              
+                  <td><?= $no++ ?></td>
+                  <td><?= date("d-m-Y", strtotime($row['date']));?></td>
+                  <td><?= $row['pair']; ?></td>
+                  <td><?= $row['timeframe']; ?></td>
+                  <td class="bg-<?= $row['position']; ?>"><?= $row['position']; ?></td>
+                  <td><?= $row['price']; ?></td>
+                  <td><?= $row['stoploss']; ?></td>
+                  <td><?= $row['point']; ?></td>
+                  <td>
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal<?=$row['id'];?>">
+                          Chart
+                      </button>
+                  </td>
+                  <td>
+                      <button type="button" class="btn btn-<?= $row['hit-1'] == 'hit-tp-1' ? 'success' : '' ?><?= $row['hit-1'] == 'hit-sl-1' ? 'danger' : '' ?><?= $row['hit-1'] == '' ? 'warning' : '' ?>" data-toggle="modal" data-target="#exampleModal<?=$row['id'];?>-<?=$row['hit-1'];?>">
+                        <?= $row['hit-1'] == 'hit-tp-1' ? 'HIT TP' : '' ?>
+                        <?= $row['hit-1'] == 'hit-sl-1' ? 'HIT SL' : '' ?>
+                        <?= $row['hit-1'] == '' ? 'FLOATING' : '' ?>
+                      </button>
+                  </td>
+                  <td>
+                      <button type="button" class="btn btn-<?= $row['hit-2'] == 'hit-tp-2' ? 'success' : '' ?><?= $row['hit-2'] == 'hit-sl-2' ? 'danger' : '' ?><?= $row['hit-2'] == '' ? 'warning' : '' ?>" data-toggle="modal" data-target="#exampleModal<?=$row['id'];?>-<?=$row['hit-2'];?>">
+                        <?= $row['hit-2'] == 'hit-tp-2' ? 'HIT TP' : '' ?>
+                        <?= $row['hit-2'] == 'hit-sl-2' ? 'HIT SL' : '' ?>
+                        <?= $row['hit-2'] == '' ? 'FLOATING' : '' ?>
+                      </button>
+                  </td>
+                  <td>
+                      <button type="button" class="btn btn-<?= $row['hit-3'] == 'hit-tp-3' ? 'success' : '' ?><?= $row['hit-3'] == 'hit-sl-3' ? 'danger' : '' ?><?= $row['hit-3'] == '' ? 'warning' : '' ?>" data-toggle="modal" data-target="#exampleModal<?=$row['id'];?>-<?=$row['hit-3'];?>">
+                        <?= $row['hit-3'] == 'hit-tp-3' ? 'HIT TP' : '' ?>
+                        <?= $row['hit-3'] == 'hit-sl-3' ? 'HIT SL' : '' ?>
+                        <?= $row['hit-3'] == '' ? 'FLOATING' : '' ?>
+                      </button>
+                  </td>
+                  
+                  <td>
+                    <a href="running-transaction/finish/<?= $row['id']; ?>" class="btn btn-warning">Finish</a>
+                    <a href="running-transaction/edit/<?= $row['id']; ?>" class="btn btn-primary">edit</a>
+                  </td>
                 </tr>
 
 
                 <!-- Modal -->
-            <div class="modal fade modal-xl" id="exampleModal<?=$row['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-lg modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Chart <?= $row['pair']; ?> Timeframe <?= $row['timeframe']; ?></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body" style="text-align: center;">
-                    <img src="<?= $row['chart']; ?>" width="700px">
-                    <br>
-                    <a href="<?= $row['chart']; ?>" target="_blank"><?= $row['chart']; ?></a>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php include 'chart.php' ?>
+            <?php include 'tp-1.php' ?>
+            <?php include 'tp-2.php' ?>
+            <?php include 'tp-3.php' ?>
+
             <?php endforeach ?>
               </tbody>
             </table>

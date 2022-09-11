@@ -24,7 +24,7 @@ class ActivePlan extends BaseController
         $active = $this->activePlan->where('cancel', 'FALSE')->findAll();
 
         $data = [
-            "title" => "SActive Plan",
+            "title" => "Active Plan",
             "rows" => $active
         ];
 
@@ -41,8 +41,6 @@ class ActivePlan extends BaseController
         $stoploss = $this->request->getVar('stoploss');
         $chart = $this->request->getVar('chart');
         $cancel = 'FALSE';
-        
-        // var_dump($date);
         
         if ($position == "BUY") {
 
@@ -106,6 +104,9 @@ class ActivePlan extends BaseController
             'tp-1' => '',
             'tp-2' => '',
             'tp-3' => '',
+            'hit-1' => '',
+            'hit-2' => '',
+            'hit-3' => '',
             'finish' => 'FALSE',
         ]);
 
@@ -176,10 +177,13 @@ class ActivePlan extends BaseController
             'price' => $price,
             'stoploss' => $stoploss,
             'point' => $point,
+            'chart' => $chart,
             'tp-1' => $tp_1,
             'tp-2' => $tp_2,
             'tp-3' => $tp_3,
-            'chart' => $chart,
+            'hit-1' => '',
+            'hit-2' => '',
+            'hit-3' => '',
             'cancel' => $cancel
 
         ]);

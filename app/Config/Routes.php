@@ -46,6 +46,10 @@ $routes->post('/active-plan/update', 'ActivePlan::update');
 
 
 $routes->get('/running-transaction', 'RunningTransaction::index');
+$routes->get('/running-transaction/edit/(:any)', 'RunningTransaction::edit/$1');
+$routes->post('/running-transaction/update', 'RunningTransaction::update');
+
+
 $routes->get('/finish-plan', 'FinishPlan::index');
 $routes->get('/cancel-plan', 'CancelPlan::index');
 
