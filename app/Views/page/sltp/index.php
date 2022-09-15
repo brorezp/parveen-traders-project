@@ -21,6 +21,7 @@
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Pair</th>
+                <th scope="col">Timeframe</th>
                 <th scope="col">Position</th>
                 <th scope="col">Price</th>
                 <th scope="col">StopLoss</th>
@@ -37,17 +38,20 @@
             <tr>
               <td><?= $no++ ?></td>
               <td><?= $row['pair']; ?></td>
+              <td><?= $row['timeframe']; ?></td>
               <td class="bg-<?= $row['position']; ?>"><?= $row['position']; ?></td>
               <td><?= $row['price']; ?></td>
               <td><?= $row['stoploss']; ?></td>
-              <td><?= $row['margin-point']; ?></td>
+              <td><?= $row['point']; ?></td>
               <td><?= $row['tp-1']; ?></td>
               <td><?= $row['tp-2']; ?></td>
               <td><?= $row['tp-3']; ?></td>
               <td>
-                <button class="btn btn-success">
+                <!-- <button class="btn btn-success">
                   Add to Active Plan ?
-                </button>
+                </button> -->
+                <a href="sl-tp-calculator/add-active/<?= $row['id']; ?>" class="btn btn-primary" onclick="return confirm('ingin Aktifkan Perhitungan ini ?')">Aktif</a>
+                <a href="sl-tp-calculator/delete/<?= $row['id']; ?>" class="btn btn-danger" onclick="return confirm('ingin Delete Perhitungan ini ?')">Delete</a>
               </td>
             </tr>
             <?php endforeach ?>
@@ -59,7 +63,7 @@
 
       <hr>
 
-<?php include('add-sltp.php'); ?>
+<?php include('add.php'); ?>
 
 
       <?= $this->endSection(); ?>

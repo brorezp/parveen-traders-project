@@ -9,13 +9,6 @@
       <hr>
       
       <div class="row">
-        <div class="col-md-5 mb-3">
-          <div class="card border-success">
-            <div class="card-body text-success">
-                Tutup Sidebar untuk mendapatkan hasil maksimal
-            </div>
-          </div>
-        </div>
 
         <div class="col-md-7">
 

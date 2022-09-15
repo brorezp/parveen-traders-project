@@ -9,14 +9,6 @@
       <hr>
       
       <div class="row">
-        <div class="col-md-5 mb-3">
-          <div class="card border-success">
-            <div class="card-body text-success">
-                Tutup Sidebar untuk mendapatkan hasil maksimal
-            </div>
-          </div>
-        </div>
-
         <div class="col-md-7">
 
         </div>
@@ -34,9 +26,25 @@
           &nbsp
         </div>
 
+        <hr>
+
+        <br>
+
+        <?php if (session()->getFlashdata('pesan') != '') : ?>
+          <div class="col-md-5 mt-3">
+            <div class="card border-warning">
+              <div class="card-body text-warning">
+                <?= session()->getFlashdata('pesan'); ?>
+              </div>
+            </div>
+          </div>
+          <hr>
+        <?php endif ?>
+
       </div>
 
-      <hr>
+      <br>
+
 
       <div class="row">
         <div class="col-md-12">
@@ -117,7 +125,7 @@
                   
                   <td>
                     <a href="running-transaction/finish/<?= $row['id']; ?>" class="btn btn-warning">Finish</a>
-                    <a href="running-transaction/edit/<?= $row['id']; ?>" class="btn btn-primary">edit</a>
+                    <a href="running-transaction/edit/<?= $row['id']; ?>" class="btn btn-primary">Add Data</a>
                   </td>
                 </tr>
 

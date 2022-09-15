@@ -69,6 +69,7 @@ class RunningTransaction extends BaseController
 
         } else {
             // return redirect()->to('/running-transaction');
+            session()->setFlashdata('pesan', 'Data masih ada yang Kosong.');
 
         }
 
@@ -77,6 +78,6 @@ class RunningTransaction extends BaseController
             "row" => $running
         ];
 
-        return view('page/running/index', $data);
+        return redirect()->to('/running-transaction');
     }
 }

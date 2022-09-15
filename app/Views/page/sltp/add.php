@@ -12,7 +12,7 @@
         
       <form class="row" action="/sl-tp-calculator/save" method="POST">
         <?php csrf_field(); ?>
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-12">
         <label for="pair">Pair</label>
           <select class="form-control" id="pair" name="pair">
             <option>EURUSD</option>
@@ -43,6 +43,19 @@
             <option>XAUUSD</option>
           </select>
         </div>
+        
+        <div class="form-group col-md-6">
+          <label for="timeframe">TimeFrame</label>
+          <br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="timeframe" id="timeframe" value="1 HOUR">
+            <label class="form-check-label" for="timeframe">1 Hour</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="timeframe" id="timeframe" value="4 HOUR">
+            <label class="form-check-label" for="timeframe">4 Hour</label>
+          </div>
+        </div>
 
         <div class="form-group col-md-6">
           <label for="Position">Posisi</label>
@@ -71,15 +84,16 @@
         </div>
 
         <!-- pindah baris -->
-        <div class="col-md-2">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </form>
+       
 
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" data-dismiss="modal">Close</button>
-      </div>
+        </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+          </form>
+        </div>
+        
     </div>
   </div>
 </div>

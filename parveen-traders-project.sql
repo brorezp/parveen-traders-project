@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Sep 2022 pada 00.49
+-- Waktu pembuatan: 16 Sep 2022 pada 01.06
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 8.0.9
 
@@ -85,23 +85,25 @@ CREATE TABLE `running-transaction` (
 --
 
 INSERT INTO `running-transaction` (`id`, `date`, `pair`, `timeframe`, `position`, `price`, `stoploss`, `point`, `chart`, `tp-1`, `tp-2`, `tp-3`, `hit-1`, `hit-2`, `hit-3`, `finish`, `created_at`, `updated_at`) VALUES
-(4, '09-09-2022', 'GBPAUD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 'https://www.tradingview.com/x/NG2gAsfP/', 'https://www.tradingview.com/x/It32pQLV/', 'https://www.tradingview.com/x/ozH9JnsY/', 'https://www.tradingview.com/x/TM0GlXrg/', 'hit-tp-1', 'hit-tp-2', 'hit-sl-3', 'FALSE', '2022-09-09 07:29:07', '2022-09-10 07:48:42'),
+(4, '09-09-2022', 'GBPAUD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 'https://www.tradingview.com/x/NG2gAsfP/', 'https://www.tradingview.com/x/It32pQLV/', 'https://www.tradingview.com/x/ozH9JnsY/', 'https://www.tradingview.com/x/TM0GlXrg/', 'hit-tp-1', 'hit-tp-2', 'hit-sl-3', 'TRUE', '2022-09-09 07:29:07', '2022-09-15 16:56:19'),
 (5, '09-09-2022', 'EURUSD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 'https://www.tradingview.com/x/NG2gAsfP/', '', '', '', NULL, NULL, NULL, 'FALSE', '2022-09-09 07:36:01', '2022-09-09 07:36:01'),
 (6, '09-09-2022', 'GBPUSD', '1 HOUR', 'BUY', 1.7032, 1.6979, 0.0053, 'https://www.tradingview.com/x/NG2gAsfP/', '', '', '', NULL, NULL, NULL, 'FALSE', '2022-09-09 17:42:51', '2022-09-09 17:42:51');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sltp`
+-- Struktur dari tabel `sl-tp`
 --
 
-CREATE TABLE `sltp` (
+CREATE TABLE `sl-tp` (
   `id` int(5) NOT NULL,
+  `date` varchar(200) DEFAULT NULL,
   `pair` varchar(20) NOT NULL,
-  `price` float NOT NULL,
+  `timeframe` varchar(20) NOT NULL,
   `position` varchar(20) NOT NULL,
+  `price` float NOT NULL,
   `stoploss` float NOT NULL,
-  `margin-point` int(20) NOT NULL,
+  `point` float NOT NULL,
   `tp-1` float NOT NULL,
   `tp-2` float NOT NULL,
   `tp-3` float NOT NULL,
@@ -110,12 +112,12 @@ CREATE TABLE `sltp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `sltp`
+-- Dumping data untuk tabel `sl-tp`
 --
 
-INSERT INTO `sltp` (`id`, `pair`, `price`, `position`, `stoploss`, `margin-point`, `tp-1`, `tp-2`, `tp-3`, `created_at`, `updated_at`) VALUES
-(1, 'EURUSD', 1.24881, 'BUY', 1.12388, 300, 1.12389, 1.12313, 1.19869, '2022-09-06 14:11:31', '2022-09-06 14:11:31'),
-(2, 'USDJPY', 1.281, 'SELL', 1.123, 30, 1.112, 1.289, 1.465, '2022-09-06 14:11:31', '2022-09-06 14:11:31');
+INSERT INTO `sl-tp` (`id`, `date`, `pair`, `timeframe`, `position`, `price`, `stoploss`, `point`, `tp-1`, `tp-2`, `tp-3`, `created_at`, `updated_at`) VALUES
+(10, '10-09-2022', 'GBPUSD', '1 HOUR', 'BUY', 1.7035, 1.6975, 0.006, 1.7095, 1.7155, 1.7215, '2022-09-09 17:46:49', '2022-09-10 05:52:51'),
+(11, '09-09-2022', 'GBPUSD', '1 HOUR', 'BUY', 1.7035, 1.6975, 0.006, 1.7095, 1.7155, 1.7215, '2022-09-09 18:00:17', '2022-09-09 18:00:27');
 
 --
 -- Indexes for dumped tables
@@ -134,9 +136,9 @@ ALTER TABLE `running-transaction`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `sltp`
+-- Indeks untuk tabel `sl-tp`
 --
-ALTER TABLE `sltp`
+ALTER TABLE `sl-tp`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -156,10 +158,10 @@ ALTER TABLE `running-transaction`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `sltp`
+-- AUTO_INCREMENT untuk tabel `sl-tp`
 --
-ALTER TABLE `sltp`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `sl-tp`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

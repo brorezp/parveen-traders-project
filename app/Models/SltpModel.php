@@ -6,12 +6,12 @@ use CodeIgniter\Model;
 
 class SltpModel extends Model
 {
-    protected $table            = 'sltp';
+    protected $table            = 'sl-tp';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['date', 'pair', 'timeframe', 'position', 'price', 'stoploss', 'point', 'tp-1', 'tp-2', 'tp-3'];
 
     // Dates
     protected $useTimestamps = true;

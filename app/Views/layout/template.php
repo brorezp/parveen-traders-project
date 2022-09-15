@@ -92,13 +92,7 @@
             <div class="sidebar-submenu">
               <ul>
                 <li>
-                  <a href="/review-trading-plan">Review Trading Plan</a>
-                </li>
-                <li>
                   <a href="/webinar-record">Webinar Record</a>
-                </li>
-                <li>
-                  <a href="vip-course">VIP Course</a>
                 </li>
               </ul>
             </div>

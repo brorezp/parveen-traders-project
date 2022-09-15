@@ -21,7 +21,8 @@ class CancelPlan extends BaseController
 
         $data = [
             "title" => "Cancel Plan",
-            "rows" => $active
+            "rows" => $active,
+            "barang" => "biasa"
         ];
 
         return view('page/plan/cancel-plan', $data);
