@@ -17,10 +17,10 @@ class RunningTransaction extends BaseController
 
     public function index()
     {
-        $running = $this->runningTransaction->findAll();
+        $running = $this->runningTransaction->where('finish', 'FALSE')->findAll();
         
         $data = [
-            "title" => "Running Transactiosn",
+            "title" => "Running Transaction",
             "rows" => $running
         ];
         return view('page/running/index', $data);
@@ -52,5 +52,31 @@ class RunningTransaction extends BaseController
         ]);
 
         return redirect()->to('/running-transaction');
+    }
+
+    public function finish($id)
+    {
+        $running = $this->runningTransaction->find($id);
+
+        if($running['tp-1'] != null && $running['tp-2'] != null && $running['tp-3'] != null &&
+            $running['hit-1'] != null && $running['hit-2'] != null && $running['hit-3'] != null)
+        {
+
+            $this->runningTransaction->save([
+                'id' => $id,
+                'finish' => 'TRUE'
+            ]);
+
+        } else {
+            // return redirect()->to('/running-transaction');
+
+        }
+
+        $data = [
+            "title" => "Add Take Profit",
+            "row" => $running
+        ];
+
+        return view('page/running/index', $data);
     }
 }

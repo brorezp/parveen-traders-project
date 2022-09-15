@@ -38,6 +38,22 @@
 
       <hr>
 
+      <?php if(session()->get('pesan') != null) :?>
+
+
+        <div class="col-md-8">
+          <div class="card border-danger">
+            <div class="card-body text-danger">
+                <?= session()->get('pesan'); ?>
+            </div>
+          </div>
+        </div>
+
+      <hr>
+
+      <?php endif; ?>
+
+
       <div class="row">
         <div class="col-md-12">
           <div class="card">
@@ -58,7 +74,6 @@
                   <th scope="col">TP-1</th>
                   <th scope="col">TP-2</th>
                   <th scope="col">TP-3</th>
-                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -115,10 +130,6 @@
                   <?php  endif ?>
                   </td>
                   
-                  <td>
-                    <a href="running-transaction/finish/<?= $row['id']; ?>" class="btn btn-warning">Finish</a>
-                    <a href="running-transaction/edit/<?= $row['id']; ?>" class="btn btn-primary">edit</a>
-                  </td>
                 </tr>
 
 
