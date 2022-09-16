@@ -39,37 +39,54 @@ class SltpCalculator extends BaseController
         
         $sub_pair = substr($pair,3);
 
-        if ($position == 'buy' && $sub_pair == "USD") {
-            $price = round($proximal,4) + 0.0003;
-            $stoploss = round($distal,4) - 0.0005;
-            $point = round($price + $stoploss, 4);
+        if ($position == 'BUY') {
+
+            $price = $proximal + 0.0003;
+            $stoploss = $distal - 0.0005;
+            $point = $price + $stoploss;
             $tp_1 = $price + $point;
             $tp_2 = $price + ($point*2);
             $tp_3 = $price + ($point*3);
 
-        } elseif ($position == 'sell' && $sub_pair == "USD") {
-            $price = round($proximal,4);
-            $stoploss = round($distal,4) + 0.0008;
-            $point = round($price - $stoploss, 4);
+        } elseif ($position == 'SELL') {
+
+            $price = $proximal;
+            $stoploss = $distal + 0.0008;
+            $point = $stoploss - $price;
             $tp_1 = $price - $point;
             $tp_2 = $price - ($point*2);
             $tp_3 = $price - ($point*3);
+
         } 
-        
-        var_dump($price, $stoploss, $point, $tp_1);
 
+        if (substr($pair, 3) == 'JPY') {
 
-        //$price = $this->request->getVar('price');
-        //$stoploss = $this->request->getVar('stoploss');
+            $last_number = 3;
 
+        } elseif ($pair == 'GOLD') {
 
-        // $this->sltpModel->save([
-        //     'pair' => $this->request->getVar('pair'),
-        //     'position' => $this->request->getVar('position'),
-        //     'proximal' => $this->request->getVar('proximal'),
-        //     'distal' => $this->request->getVar('distal')
+            $last_number = 2;
 
-        // ]);
+        } elseif (substr($pair, 3) != 'JPY') {
+
+            $last_number = 4;
+
+        }
+
+        $this->sltpModel->save([
+            
+            'date' => $date,
+            'pair' => $pair,
+            'timeframe' => $timeframe,
+            'position' => $position,
+            'price' => round($price, $last_number),
+            'stoploss' => round($stoploss, $last_number),
+            'point' => round($point, $last_number),
+            'tp-1' => round($tp_1, $last_number),
+            'tp-2' => round($tp_2, $last_number),
+            'tp-3' => round($tp_3, $last_number),
+
+        ]);
     }
 
 }

@@ -127,7 +127,6 @@ class ActivePlan extends BaseController
             'EURCAD', 'CHFJPY', 'EURCHF', 'NZDJPY', 'GBPCAD', 
             'GBPCHF', 'AUDCHF', 'AUDNZD', 'EURNZD', 'GBPNZD', 
             'XAUUSD'
-
         ];
 
         $data = [
